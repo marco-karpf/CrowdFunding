@@ -61,8 +61,9 @@ public class ViewController {
 	}
 
 	@GetMapping("/delete/{id}")
-	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="delete/{id}", method = RequestMethod.GET)
 	public String deleteDonation(@PathVariable("id") int id, Model model) {
+		model.addAttribute("donation", new Donation());
 		System.out.println("ViewController.deleteDonation");
 		list.getDonations().remove(id);
 		model.addAttribute("donations", list.getDonations());
