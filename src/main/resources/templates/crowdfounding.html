@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--author marco karpf-->
+	<head>
+		<title>Crowdfouding</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="css/mvp.css">
+	</head>
+	<body>
+		<main>
+			<h1>Crowdfounding</h1>
+			<img class="img-fluid" width="200" src="images/Crowdfounding.png" alt="Crowdfounding Icons" />
+			<div>
+				<h2>Neuen Spende erfassen</h2>
+				<form th:object="${donation}" th:action="@{/adddonation}" method="post">
+					<label>Spender:</label>
+					<input type="text" th:field="*{donator}"/>
+					<label>Betrag:</label>
+					<input type="text" th:field="*{value}"/>
+					<label>Email:</label>
+					<input type="text" th:field="*{email}"/>
+					<button type="submit">Hinzufügen</button>
+				</form>
+				<button><a th:href="@{/remove}" style="text-decoration: none; color: black; ">letzte Spende löschen</a></button>
+			</div>
+            <div th:object="${list}">
+				<label>Summe der Spenden</label>
+                <output th:text="${list.amount}">0</output>><a
+			</div>
+
+            <div>
+				<h2>Erfasste Spenden</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Spender</th>
+							<th>Betrag</th>
+                            <th>E-Mail</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="donation : ${donations}">
+							<td th:text="${donation.donator}"></td>
+							<td th:text="${donation.value}"></td>
+							<td th:text="${donation.email}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+			</div>
+		</main>
+		<footer>
+	    	<p><small>© 2022 / Author: P.Rutschmann</small></p>
+		</footer>
+	</body>
+</html>
