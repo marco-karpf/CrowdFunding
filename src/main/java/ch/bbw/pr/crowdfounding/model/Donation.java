@@ -1,5 +1,9 @@
 package ch.bbw.pr.crowdfounding.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 /**
  * Donation
  *
@@ -11,17 +15,19 @@ public class Donation {
     private String donator = "none";
     private String value = "12.0";
     private String email = "none@gmail.com";
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date = new Date();
 
     public Donation() {
         super();
     }
 
-    public Donation(int id, String donator, String value, String email) {
+    public Donation(int id, String donator, String value, String email, Date date ) {
         this.donator = donator;
         this.value = value;
         this.email = email;
         this.id = id;
-
+        this.date = date;
     }
 
     public int getId() {
@@ -56,12 +62,20 @@ public class Donation {
         this.email = email;
     }
 
+    public Date getDate() {
+        return date;
+    }
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Donation{" +
                 "donator='" + donator + '\'' +
                 ", value='" + value + '\'' +
                 ", email='" + email + '\'' +
+                ", date=" + date +
                 '}';
     }
 }

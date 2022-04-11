@@ -18,9 +18,11 @@
             <label>Spender:</label>
             <input type="text" th:field="*{donator}"/>
             <label>Betrag:</label>
-            <input type="text" th:field="*{value}"/>text
+            <input type="text" th:field="*{value}"/>
             <label>Email:</label>
             <input type="text" th:field="*{email}"/>
+            <label>Überweisungsdatum:</label>
+            <input type="date" th:field="*{date}"/>
             <button type="submit">Hinzufügen</button>
         </form>
         <button><a th:href="@{/remove}" style="text-decoration: none; color: black; ">letzte Spende löschen</a></button>
@@ -38,6 +40,7 @@
                 <th>Spender</th>
                 <th>Betrag</th>
                 <th>E-Mail</th>
+                <th>Überweisungsdatum</th>
                 <th>Update/Delete</th>
             </tr>
             </thead>
@@ -46,6 +49,7 @@
                 <td th:text="${donation.donator}"></td>
                 <td th:text="${donation.value}"></td>
                 <td th:text="${donation.email}"></td>
+                <td th:text="${donation.date}"></td>
                 <td><a th:href="@{/update/{id}(id=${donation.id})}" class="btn btn-primary">Update</a>
                     <a th:href="@{/delete/{id}(id=${donation.id})}" class="btn btn-danger">Delete</a>
                 </td>
@@ -57,7 +61,7 @@
     </div>
 </main>
 <footer>
-    <p><small>© 2022 / Author: P.Rutschmann</small></p>
+    <p><small>© 2022 / Author: M.Karpf</small></p>
 </footer>
 </body>
 </html>
