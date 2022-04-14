@@ -4,12 +4,12 @@
 <head>
     <title>Crowdfouding</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="css/mvp.css">
+    <link rel="stylesheet" href="/css/mvp.css">
 </head>
 <body>
 <main>
     <h1>Crowdfounding</h1>
-    <img class="img-fluid" width="200" src="images/Crowdfounding.png" alt="Crowdfounding Icons"/>
+    <img class="img-fluid" width="200" src="/images/Crowdfounding.png" alt="Crowdfounding Icons"/>
     <div>
         <h2>Neuen Spende erfassen</h2>
         <form th:object="${donation}" th:action="@{/adddonation}" method="post">
@@ -50,7 +50,7 @@
                 <td th:text="${donation.value}"></td>
                 <td th:text="${donation.email}"></td>
                 <td th:text="${donation.date}"></td>
-                <td><a th:href="@{/update/{id}(id=${donation.id})}" class="btn btn-primary">Update</a>
+                <td><a th:href="@{/edit/{id}(id=${donation.id})}" class="btn btn-primary">Update</a>
                     <a th:href="@{/delete/{id}(id=${donation.id})}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
